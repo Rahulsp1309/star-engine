@@ -1,0 +1,1201 @@
+/* ========================================= */
+/* HOST */
+/* ========================================= */
+
+:host {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+
+/* ========================================= */
+/* PAGE */
+/* ========================================= */
+
+.star-page {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  background: #02030a;
+  color: #fff;
+}
+
+/* ========================================= */
+/* SKY */
+/* ========================================= */
+
+.sky {
+
+  position: absolute;
+
+  inset: 0;
+
+  overflow: hidden;
+
+  background: #02030a;
+}
+
+
+/* ========================================= */
+/* MAIN IMAGE */
+/* ========================================= */
+
+.sky-image {
+  position: absolute;
+  inset: -5%;
+  width: 110%;
+  height: 110%;
+  object-fit: cover;
+  object-position: center center;
+  z-index: 0;
+
+  animation: skyDrift 30s linear infinite;
+}
+
+.sky-vignette {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      transparent 15%,
+      rgba(0, 0, 0, 0.12) 45%,
+      rgba(0, 0, 0, 0.75) 100%
+    );
+
+  pointer-events: none;
+}
+
+
+.sky-gradient {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(2, 3, 15, 0.35) 0%,
+      rgba(2, 3, 15, 0.05) 35%,
+      rgba(2, 3, 15, 0.15) 65%,
+      rgba(1, 2, 8, 0.8) 100%
+    );
+
+  pointer-events: none;
+}
+/* ========================================= */
+/* DARK VIGNETTE */
+/* ========================================= */
+
+.sky-vignette {
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+
+    radial-gradient(
+      ellipse at center,
+      transparent 15%,
+      rgba(0, 0, 0, 0.12) 45%,
+      rgba(0, 0, 0, 0.75) 100%
+    );
+
+  pointer-events: none;
+}
+
+
+/* ========================================= */
+/* ATMOSPHERIC GRADIENT */
+/* ========================================= */
+
+.sky-gradient {
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+
+    linear-gradient(
+      to bottom,
+      rgba(2, 3, 15, 0.35) 0%,
+      rgba(2, 3, 15, 0.05) 35%,
+      rgba(2, 3, 15, 0.15) 65%,
+      rgba(1, 2, 8, 0.8) 100%
+    );
+
+  pointer-events: none;
+}
+
+
+/* ========================================= */
+/* STAR OVERLAY */
+/* ========================================= */
+
+.stars {
+
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  opacity: 0.45;
+
+  background-repeat: repeat;
+
+}
+
+
+/*
+ * Tiny stars created using radial gradients.
+ * These sit on top of the photograph and
+ * give the sky a little life.
+ */
+
+.stars-one {
+
+  background-image:
+
+    radial-gradient(
+      circle at 12% 22%,
+      rgba(255,255,255,.9) 0 1px,
+      transparent 1.5px
+    ),
+
+    radial-gradient(
+      circle at 34% 14%,
+      rgba(255,255,255,.7) 0 1px,
+      transparent 1.5px
+    ),
+
+    radial-gradient(
+      circle at 71% 19%,
+      rgba(255,255,255,.8) 0 1px,
+      transparent 1.5px
+    ),
+
+    radial-gradient(
+      circle at 84% 43%,
+      rgba(255,255,255,.7) 0 1px,
+      transparent 1.5px
+    ),
+
+    radial-gradient(
+      circle at 22% 57%,
+      rgba(255,255,255,.8) 0 1px,
+      transparent 1.5px
+    );
+
+  animation:
+    starsTwinkle 5s ease-in-out infinite alternate;
+}
+
+
+.stars-two {
+
+  transform: scale(1.3);
+
+  opacity: 0.25;
+
+  background-image:
+
+    radial-gradient(
+      circle at 18% 32%,
+      white 0 1px,
+      transparent 1.5px
+    ),
+
+    radial-gradient(
+      circle at 49% 27%,
+      white 0 1px,
+      transparent 1.5px
+    ),
+
+    radial-gradient(
+      circle at 76% 67%,
+      white 0 1px,
+      transparent 1.5px
+    ),
+
+    radial-gradient(
+      circle at 90% 18%,
+      white 0 1px,
+      transparent 1.5px
+    );
+}
+
+
+.stars-three {
+
+  transform: scale(1.7);
+
+  opacity: 0.15;
+
+  background-image:
+
+    radial-gradient(
+      circle at 42% 42%,
+      white 0 1px,
+      transparent 1.5px
+    ),
+
+    radial-gradient(
+      circle at 66% 74%,
+      white 0 1px,
+      transparent 1.5px
+    );
+}
+
+
+/* ========================================= */
+/* HERO */
+/* ========================================= */
+
+.hero {
+
+  position: absolute;
+
+  z-index: 10;
+
+  top: 50%;
+  left: 50%;
+
+  width: min(900px, 90%);
+
+  transform:
+    translate(-50%, -50%);
+
+  text-align: center;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  transition:
+    opacity 1s ease,
+    transform 1.2s cubic-bezier(.22,.61,.36,1);
+
+}
+
+
+.hero-hidden {
+
+  opacity: 0;
+
+  transform:
+    translate(-50%, -56%)
+    scale(1.04);
+
+  pointer-events: none;
+}
+
+
+/* ========================================= */
+/* EYEBROW */
+/* ========================================= */
+
+.eyebrow {
+
+  margin-bottom: 25px;
+
+  font-family:
+    Arial,
+    sans-serif;
+
+  font-size: 10px;
+
+  font-weight: 400;
+
+  letter-spacing: .42em;
+
+  color:
+    rgba(255,255,255,.72);
+
+  text-transform: uppercase;
+}
+
+
+/* ========================================= */
+/* TITLE */
+/* ========================================= */
+
+.hero h1 {
+
+  margin: 0;
+
+  font-family:
+    Georgia,
+    'Times New Roman',
+    serif;
+
+  font-weight: 400;
+
+  font-size:
+    clamp(70px, 9vw, 135px);
+
+  line-height: .84;
+
+  letter-spacing: -.055em;
+
+  text-shadow:
+
+    0 4px 35px
+    rgba(0,0,0,.4),
+
+    0 0 70px
+    rgba(255,255,255,.08);
+
+}
+
+
+.hero h1 span {
+
+  font-style: italic;
+
+  color: #ffffff;
+}
+
+
+/* ========================================= */
+/* SUBTITLE */
+/* ========================================= */
+
+.subtitle {
+
+  max-width: 520px;
+
+  margin:
+
+    38px 0 38px;
+
+  font-family:
+    Arial,
+    sans-serif;
+
+  font-size: 15px;
+
+  line-height: 1.8;
+
+  color:
+    rgba(255,255,255,.72);
+
+  text-shadow:
+    0 2px 15px rgba(0,0,0,.7);
+}
+
+
+/* ========================================= */
+/* DISCOVER BUTTON */
+/* ========================================= */
+
+.discover-button {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 28px;
+
+  padding:
+    17px 24px 17px 28px;
+
+  border:
+    1px solid
+    rgba(255,255,255,.4);
+
+  border-radius: 100px;
+
+  background:
+    rgba(0,0,0,.18);
+
+  color: white;
+
+  backdrop-filter:
+    blur(12px);
+
+  cursor: pointer;
+
+  font-family:
+    Arial,
+    sans-serif;
+
+  font-size: 11px;
+
+  letter-spacing: .2em;
+
+  text-transform: uppercase;
+
+  transition:
+    all .45s ease;
+}
+
+
+.discover-button:hover {
+
+  background:
+    rgba(255,255,255,.12);
+
+  border-color:
+    rgba(255,255,255,.75);
+
+  transform:
+    translateY(-3px);
+
+  box-shadow:
+    0 15px 50px
+    rgba(0,0,0,.3);
+}
+
+
+.arrow {
+
+  font-size: 20px;
+
+  transition:
+    transform .4s ease;
+}
+
+
+.discover-button:hover .arrow {
+
+  transform:
+    translateX(6px);
+}
+
+
+/* ========================================= */
+/* BOTTOM */
+/* ========================================= */
+
+.bottom-text {
+
+  position: absolute;
+
+  z-index: 10;
+
+  bottom: 30px;
+
+  left: 50%;
+
+  transform:
+    translateX(-50%);
+
+  font-family:
+    Arial,
+    sans-serif;
+
+  font-size: 8px;
+
+  letter-spacing: .35em;
+
+  white-space: nowrap;
+
+  color:
+    rgba(255,255,255,.45);
+
+  transition:
+    opacity .7s ease;
+}
+
+
+.bottom-text span {
+
+  margin:
+    0 12px;
+
+  color:
+    rgba(255,255,255,.75);
+}
+
+
+.fade-out {
+
+  opacity: 0;
+}
+
+
+/* ========================================= */
+/* METEORS */
+/* ========================================= */
+
+.meteor {
+
+  position: absolute;
+
+  width: 2px;
+
+  height: 2px;
+
+  background: white;
+
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 8px 2px white;
+
+  opacity: 0;
+
+  z-index: 4;
+
+  transform: rotate(-35deg);
+}
+
+
+.meteor::after {
+
+  content: '';
+
+  position: absolute;
+
+  right: 0;
+  top: 0;
+
+  width: 140px;
+  height: 1px;
+
+  background:
+
+    linear-gradient(
+      90deg,
+      rgba(255,255,255,.8),
+      transparent
+    );
+}
+
+
+.meteor-one {
+
+  top: 24%;
+  left: 75%;
+
+  animation:
+    meteor 9s linear infinite;
+}
+
+
+.meteor-two {
+
+  top: 35%;
+  left: 30%;
+
+  animation:
+    meteor 13s linear infinite 5s;
+}
+
+
+/* ========================================= */
+/* JOURNEY */
+/* ========================================= */
+
+.journey {
+
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 20;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 30px;
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  transform:
+    translateY(35px);
+
+  transition:
+    opacity 1s ease,
+    transform 1s cubic-bezier(.22,.61,.36,1);
+
+}
+
+
+.journey-visible {
+
+  opacity: 1;
+
+  pointer-events: auto;
+
+  transform:
+    translateY(0);
+}
+
+
+.journey::before {
+
+  content: '';
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+
+    radial-gradient(
+      circle at center,
+      rgba(3,7,25,.45),
+      rgba(1,2,8,.85)
+    );
+
+  backdrop-filter:
+    blur(5px);
+}
+
+
+.journey-content {
+
+  position: relative;
+
+  width:
+    min(480px, 100%);
+
+  text-align: center;
+}
+
+
+.journey-eyebrow {
+
+  font-family:
+    Arial,
+    sans-serif;
+
+  font-size: 9px;
+
+  letter-spacing: .35em;
+
+  color:
+    rgba(255,255,255,.55);
+
+  margin-bottom: 25px;
+}
+
+
+.journey h2 {
+
+  margin: 0;
+
+  font-family:
+    Georgia,
+    'Times New Roman',
+    serif;
+
+  font-size:
+    clamp(50px, 6vw, 80px);
+
+  line-height: .9;
+
+  font-weight: 400;
+
+  letter-spacing: -.04em;
+}
+
+
+.journey-content > p {
+
+  margin:
+    25px 0 35px;
+
+  color:
+    rgba(255,255,255,.6);
+
+  font-family:
+    Arial,
+    sans-serif;
+
+  font-size: 14px;
+}
+
+
+/* ========================================= */
+/* FORM */
+/* ========================================= */
+
+.form {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 14px;
+
+  text-align: left;
+}
+
+
+.field label {
+
+  display: block;
+
+  margin-bottom: 7px;
+
+  font-family:
+    Arial,
+    sans-serif;
+
+  font-size: 8px;
+
+  letter-spacing: .25em;
+
+  color:
+    rgba(255,255,255,.5);
+}
+
+
+.field input {
+
+  width: 100%;
+
+  box-sizing: border-box;
+
+  padding:
+    14px 16px;
+
+  border:
+    1px solid
+    rgba(255,255,255,.18);
+
+  border-radius: 4px;
+
+  outline: none;
+
+  background:
+    rgba(255,255,255,.06);
+
+  color: white;
+
+  font-family:
+    Arial,
+    sans-serif;
+
+  font-size: 14px;
+
+  transition:
+    border-color .3s ease,
+    background .3s ease;
+}
+
+
+.field input:focus {
+
+  border-color:
+    rgba(255,255,255,.55);
+
+  background:
+    rgba(255,255,255,.09);
+}
+
+
+.field input::placeholder {
+
+  color:
+    rgba(255,255,255,.3);
+}
+
+
+/* ========================================= */
+/* BEGIN BUTTON */
+/* ========================================= */
+
+.begin-button {
+
+  margin-top: 15px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 20px;
+
+  padding: 17px;
+
+  border: 1px solid
+    rgba(255,255,255,.45);
+
+  border-radius: 4px;
+
+  background:
+    rgba(255,255,255,.08);
+
+  color: white;
+
+  cursor: pointer;
+
+  font-family:
+    Arial,
+    sans-serif;
+
+  font-size: 10px;
+
+  letter-spacing: .25em;
+
+  text-transform: uppercase;
+
+  transition:
+    all .35s ease;
+}
+
+
+.begin-button:hover {
+
+  background:
+    rgba(255,255,255,.16);
+
+  border-color:
+    rgba(255,255,255,.8);
+}
+
+
+.begin-button:disabled {
+
+  opacity: .5;
+
+  cursor: wait;
+}
+
+
+/* ========================================= */
+/* ERROR */
+/* ========================================= */
+
+.error {
+
+  margin-top: 15px;
+
+  color:
+    #ffb5b5;
+
+  font-size: 12px;
+}
+
+
+/* ========================================= */
+/* RESULT */
+/* ========================================= */
+
+.result {
+
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 30;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-align: center;
+
+  background:
+    rgba(0,0,0,.45);
+
+  backdrop-filter:
+    blur(3px);
+}
+
+
+.result-eyebrow {
+
+  font-size: 10px;
+
+  letter-spacing: .4em;
+
+  color:
+    rgba(255,255,255,.55);
+}
+
+
+.result h2 {
+
+  margin:
+    20px 0;
+
+  font-family:
+    Georgia,
+    serif;
+
+  font-size:
+    clamp(45px, 7vw, 90px);
+
+  font-weight: 400;
+}
+
+
+.result p {
+
+  color:
+    rgba(255,255,255,.5);
+}
+
+
+.result-distance {
+
+  margin-top: 25px;
+
+  font-size: 13px;
+
+  letter-spacing: .15em;
+
+  text-transform: uppercase;
+
+  color:
+    rgba(255,255,255,.7);
+}
+
+
+/* ========================================= */
+/* ANIMATIONS */
+/* ========================================= */
+
+@keyframes skyDrift {
+  from {
+    transform: translateX(-4%) scale(1.05);
+  }
+
+  to {
+    transform: translateX(4%) scale(1.05);
+  }
+}
+
+
+@keyframes starsTwinkle {
+
+  from {
+
+    opacity: .25;
+
+  }
+
+  to {
+
+    opacity: .65;
+
+  }
+}
+
+
+@keyframes meteor {
+
+  0% {
+
+    opacity: 0;
+
+    transform:
+      translate(0, 0)
+      rotate(-35deg);
+
+  }
+
+  5% {
+
+    opacity: 1;
+
+  }
+
+  16% {
+
+    opacity: 0;
+
+    transform:
+      translate(-350px, 220px)
+      rotate(-35deg);
+
+  }
+
+  100% {
+
+    opacity: 0;
+
+  }
+}
+
+
+/* ========================================= */
+/* MOBILE */
+/* ========================================= */
+
+@media (max-width: 600px) {
+
+  .hero h1 {
+
+    font-size:
+      clamp(58px, 17vw, 90px);
+
+  }
+
+  .subtitle {
+
+    max-width: 330px;
+
+    font-size: 13px;
+
+  }
+
+  .eyebrow {
+
+    font-size: 8px;
+
+  }
+
+  .bottom-text {
+
+    font-size: 6px;
+
+    letter-spacing: .18em;
+
+  }
+
+  .sky-image {
+
+    background-position:
+      60% center;
+
+  }
+
+}
+:host {
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+.time-travel {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(4, 8, 25, 0.15),
+      rgba(1, 2, 10, 0.72)
+    );
+
+  pointer-events: none;
+
+  animation: timeTravelAppear 1.5s ease forwards;
+}
+
+.time-travel-content {
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  animation: timeTravelPulse 6s ease-in-out infinite;
+}
+
+.time-travel-eyebrow {
+  margin-bottom: 20px;
+
+  font-size: 11px;
+  letter-spacing: 0.4em;
+
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.time-year {
+  font-family: Georgia, 'Times New Roman', serif;
+
+  font-size: clamp(90px, 16vw, 190px);
+  line-height: 0.9;
+
+  font-weight: 400;
+
+  color: rgba(255, 255, 255, 0.95);
+
+  text-shadow:
+    0 0 40px rgba(255, 255, 255, 0.12),
+    0 0 100px rgba(130, 160, 255, 0.12);
+
+  transition: all 0.3s ease;
+}
+
+.time-location {
+  margin-top: 28px;
+
+  font-size: 13px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.time-date {
+  margin-top: 12px;
+
+  font-size: 12px;
+  letter-spacing: 0.15em;
+
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.time-message {
+  margin-top: 55px;
+
+  font-family: Georgia, 'Times New Roman', serif;
+
+  font-size: clamp(16px, 2vw, 22px);
+  font-style: italic;
+
+  color: rgba(255, 255, 255, 0.7);
+}
+
+@keyframes timeTravelAppear {
+
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+
+}
+
+@keyframes timeTravelPulse {
+
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.015);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+
+}

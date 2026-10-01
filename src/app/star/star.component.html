@@ -1,0 +1,231 @@
+<div class="star-page">
+
+    <!-- ========================================= -->
+    <!-- CINEMATIC SKY -->
+    <!-- ========================================= -->
+
+    <div class="sky">
+
+        <img class="sky-image" src="/assets/night-sky.jpg" alt="">
+
+        <div class="sky-vignette"></div>
+
+        <div class="sky-gradient"></div>
+
+        <div class="stars stars-one"></div>
+        <div class="stars stars-two"></div>
+        <div class="stars stars-three"></div>
+
+        <div class="meteor meteor-one"></div>
+        <div class="meteor meteor-two"></div>
+        <div class="meteor meteor-three"></div>
+        <div class="meteor meteor-four"></div>
+
+        <div class="time-travel" *ngIf="isTimeTraveling">
+
+            <div class="time-travel-content">
+
+                <div class="time-travel-eyebrow">
+                    {{ timeTravelPhase }}
+                </div>
+
+                <div class="time-year">
+                    {{ timeTravelYear }}
+                </div>
+
+                <div class="time-location">
+                    {{ birthPlace }}
+                </div>
+
+                <div class="time-date">
+
+                    <span *ngIf="birthDate">
+                        {{ birthDate }}
+                    </span>
+
+                    <span *ngIf="birthTime">
+                        · {{ birthTime }}
+                    </span>
+
+                </div>
+
+                <div class="time-message">
+                    Looking for the sky that watched over you.
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- ========================================= -->
+    <!-- HERO -->
+    <!-- ========================================= -->
+
+    <main class="hero" [class.hero-hidden]="showJourney || isTimeTraveling">
+
+        <div class="eyebrow">
+            A JOURNEY THROUGH THE SKY
+        </div>
+
+        <h1>
+            The Star
+            <br>
+
+            <span>Above You</span>
+        </h1>
+
+        <p class="subtitle">
+
+            Discover the star that was directly above you
+            at the moment you were born.
+
+        </p>
+
+        <button class="discover-button" type="button" (click)="startJourney()">
+
+            <span>
+                Discover yours
+            </span>
+
+            <span class="arrow">
+                →
+            </span>
+
+        </button>
+
+    </main>
+
+
+    <!-- ========================================= -->
+    <!-- BOTTOM LABEL -->
+    <!-- ========================================= -->
+
+    <div class="bottom-text" [class.fade-out]="showJourney">
+
+        <span>✦</span>
+
+        YOUR MOMENT · YOUR SKY · YOUR STAR
+
+        <span>✦</span>
+
+    </div>
+
+
+    <!-- ========================================= -->
+    <!-- JOURNEY PANEL -->
+    <!-- ========================================= -->
+
+    <section class="journey" [class.journey-visible]="showJourney && !isTimeTraveling">
+
+        <div class="journey-content">
+
+            <div class="journey-eyebrow">
+                YOUR MOMENT
+            </div>
+
+            <h2>
+                When were<br>
+                you born?
+            </h2>
+
+            <p>
+                Tell us when and where your story began.
+            </p>
+
+
+            <div class="form">
+
+                <div class="field">
+
+                    <label>
+                        DATE OF BIRTH
+                    </label>
+
+                    <input type="date" [(ngModel)]="birthDate">
+
+                </div>
+
+
+                <div class="field">
+
+                    <label>
+                        TIME OF BIRTH
+                    </label>
+
+                    <input type="time" [(ngModel)]="birthTime" step="1">
+
+                </div>
+
+
+                <div class="field">
+
+                    <label>
+                        PLACE OF BIRTH
+                    </label>
+
+                    <input type="text" [(ngModel)]="birthPlace" placeholder="Jalgaon">
+
+                </div>
+
+
+                <button class="begin-button" type="button" (click)="findStar()" [disabled]="loading">
+
+                    <span *ngIf="!loading">
+                        Look at my sky
+                    </span>
+
+                    <span *ngIf="loading">
+                        Looking at the sky...
+                    </span>
+
+                    <span>
+                        →
+                    </span>
+
+                </button>
+
+            </div>
+
+
+            <div class="error" *ngIf="error">
+
+                {{ error }}
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========================================= -->
+    <!-- RESULT -->
+    <!-- ========================================= -->
+
+    <section class="result" *ngIf="result">
+
+        <div class="result-eyebrow">
+            YOUR STAR
+        </div>
+
+        <h2>
+            {{ result.name || result.designation }}
+        </h2>
+
+        <p>
+            Gaia DR3 ·
+            {{ result.sourceId }}
+        </p>
+
+        <div class="result-distance">
+
+            {{ result.zenithDistance | number:'1.2-4' }}°
+            from your zenith
+
+        </div>
+
+    </section>
+
+</div>
