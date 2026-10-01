@@ -25,7 +25,7 @@ export interface BirthStarResponse {
 })
 export class StarService {
 
-  private apiUrl = 'http://localhost:8080/api/star';
+  private apiUrl = 'https://star-engine01-latest.onrender.com/api/star';
 
   constructor(private http: HttpClient) {}
 
