@@ -97,7 +97,7 @@ export class StarComponent {
 
     }
 
-  }, 7000);
+  }, 2000);
 }
 
 
